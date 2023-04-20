@@ -44,7 +44,7 @@ contract SaveTheBankers is Taxable, ReentrancyGuard, ERC20Capped, ERC20Burnable,
         uint amount
     );
 
-    function _mint(address account, uint256 amount) internal virtual override(ERC20Capped, ERC20) {
+    function _mint(address account, uint256 amount) internal virtual override(ERC20Capped, ERC20) onlyOwner() {
         require(ERC20.totalSupply() + amount <= cap(), "ERC20Capped: cap exceeded");
         super._mint(account, amount);
     }

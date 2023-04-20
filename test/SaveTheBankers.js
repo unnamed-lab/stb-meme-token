@@ -43,12 +43,12 @@ describe("SaveTheBankers Contract", function(){
       expect(await stbToken.updateTaxDestination(addr1));
     });
 
-    it("Add Tax Exclusive Address", async function () {
-      expect(await stbToken.addExcludedAddress(addr1))
+    it("Update Tax Rate", async function () {
+      expect(await stbToken.updateTax(500));
     });
 
-    it("Mints new tokens to address", async function () {
-      expect(await stbToken._mint(0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266, 1000000));
+    it("Add Tax Exclusive Address", async function () {
+      expect(await stbToken.addExcludedAddress(addr1))
     });
 
     it("Destroy Contract", async function () {
